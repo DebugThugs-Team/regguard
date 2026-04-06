@@ -1,0 +1,67 @@
+name: compliance_env
+version: 0.1.0
+description: "A regulatory compliance RL environment where an agent reads Indian corporate regulations, identifies applicable clauses, analyses compliance gaps, and produces a prioritised remediation checklist."
+tags:
+  - openenv
+  - compliance
+  - document-analysis
+  - regulatory
+
+task:
+  type: document-analysis
+  domain: regulatory-compliance
+  language: en
+  difficulty_range: easy-to-hard
+
+tasks:
+  - name: clause-extraction
+    description: "Extract applicable regulatory clause IDs for a given company profile"
+    difficulty: easy
+    reward_range: [0.0, 0.4]
+
+  - name: gap-analysis
+    description: "Identify compliance gaps between current company policy and regulatory requirements"
+    difficulty: medium
+    reward_range: [0.0, 0.4]
+
+  - name: checklist-generation
+    description: "Produce a prioritised remediation checklist with clause references and priority levels"
+    difficulty: hard
+    reward_range: [0.0, 0.2]
+
+environment:
+  max_steps: 8
+  reward_range: [0.0, 1.0]
+  action_types:
+    - extract_clauses
+    - analyse_gap
+    - produce_checklist
+
+regulations:
+  - GST Amendment Circular 2024
+  - SEBI LODR Amendment 2024
+  - RBI KYC Master Direction 2024
+  - POSH Act Compliance 2024
+
+reward_components:
+  clause_recall: 0.40
+  gap_analysis: 0.40
+  checklist_quality: 0.20
+  efficiency_bonus: 0.05
+
+baseline_scores:
+  clause-extraction: 0.40
+  gap-analysis: 0.40
+  checklist-generation: 0.20
+  average: 0.68
+
+inference:
+  script: inference.py
+  model: Qwen/Qwen2.5-72B-Instruct
+  api_base: https://router.huggingface.co/v1
+  max_tokens: 512
+  temperature: 0.2
+
+docker:
+  port: 8000
+  health_check: /health

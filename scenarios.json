@@ -1,0 +1,39 @@
+[
+  {
+    "id": "gst_001",
+    "regulation_text": "Under GST Section 22, businesses with turnover above 20 lakh must register.",
+    "company_profile": {
+      "type": "ecommerce",
+      "turnover": "25 lakh",
+      "registered": false
+    },
+    "applicable_clauses": ["Section 22"],
+    "gaps": {
+      "Section 22": "Company is not registered but should be"
+    }
+  },
+  {
+    "id": "sebi_001",
+    "regulation_text": "SEBI requires listed companies to disclose quarterly financial reports.",
+    "company_profile": {
+      "type": "listed_company",
+      "reports_disclosed": false
+    },
+    "applicable_clauses": ["Quarterly Disclosure"],
+    "gaps": {
+      "Quarterly Disclosure": "Company is not disclosing reports"
+    }
+  },
+  {
+    "id": "rbi_001",
+    "regulation_text": "RBI mandates KYC verification for all banking customers.",
+    "company_profile": {
+      "type": "bank",
+      "kyc_done": false
+    },
+    "applicable_clauses": ["KYC Rule"],
+    "gaps": {
+      "KYC Rule": "Customers are not KYC verified"
+    }
+  }
+]

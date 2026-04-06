@@ -1,0 +1,32 @@
+#Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+#Egg info(auto-generated,not needed in repo)
+*.egg-info/
+*.egg
+
+# Mac junk files
+.DS_Store
+__MACOSX/
+
+#Virtual environments
+.venv/
+venv/
+env/
+
+#uv lock file(optional,can be committed but usually ignored)
+uv.lock
+
+#IDE
+.vscode/
+.idea/
+
+#Environment variables/secrets
+.env
+*.env
+
+# Logs
+*.log

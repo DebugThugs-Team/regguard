@@ -419,7 +419,7 @@ class ComplianceEnvironment(Environment):
         bonus = 0.05 if step_count <= 3 else (0.02 if step_count <= 5 else 0.0)
 
         reward = (0.4 * clause_score) + (0.4 * gap_score) + (0.2 * checklist_score) + bonus
-        return round(max(0.0, min(1.0, reward)), 4)
+        return round(max(0.0, min(0.999, reward)), 4)
 
     @property
     def state(self) -> State:
